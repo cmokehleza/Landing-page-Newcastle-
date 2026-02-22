@@ -1,0 +1,3242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newcastle Institute — Excellence in Education Since 1972</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --crimson: #8B1A1A;
+            --crimson-dark: #6B1212;
+            --gold: #B8961E;
+            --gold-light: #D4A82A;
+            --charcoal: #1C1C1C;
+            --slate: #2E3440;
+            --mid-gray: #4A5568;
+            --light-gray: #718096;
+            --border: #D1D5DB;
+            --bg-warm: #FAF8F5;
+            --bg-off: #F5F3EF;
+            --white: #FFFFFF;
+            --font-serif: 'EB Garamond', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+            --nav-h: 68px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════
+   TOP BAR
+═══════════════════════════════════════════ */
+        .top-bar {
+            background: var(--crimson-dark);
+            color: rgba(255, 255, 255, .82);
+            font-size: 11.5px;
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+
+        .top-bar-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 7px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-bar a {
+            color: inherit;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--gold-light);
+        }
+
+        .top-bar-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 300;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .07);
+        }
+
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            height: var(--nav-h);
+            gap: 32px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-seal {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--crimson);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            flex-shrink: 0;
+        }
+
+        .logo-seal svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .logo-name {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--crimson-dark);
+            line-height: 1.15;
+        }
+
+        .logo-tagline {
+            font-size: 10px;
+            color: var(--mid-gray);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Desktop nav */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            height: var(--nav-h);
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            height: var(--nav-h);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item>a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0 15px;
+            height: var(--nav-h);
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--slate);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: color .2s, border-color .2s;
+        }
+
+        .nav-item>a:hover,
+        .nav-item.open>a {
+            color: var(--crimson);
+            border-bottom-color: var(--crimson);
+        }
+
+        .nav-item>a .chev {
+            width: 10px;
+            height: 10px;
+            transition: transform .25s;
+            opacity: .55;
+            flex-shrink: 0;
+        }
+
+        .nav-item.open>a .chev {
+            transform: rotate(180deg);
+        }
+
+        .nav-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-search {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--mid-gray);
+            display: flex;
+            align-items: center;
+            transition: color .2s;
+        }
+
+        .btn-search:hover {
+            color: var(--crimson);
+        }
+
+        .btn-apply {
+            background: var(--crimson);
+            color: var(--white);
+            text-decoration: none;
+            padding: 9px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: background .2s;
+            display: inline-block;
+        }
+
+        .btn-apply:hover {
+            background: var(--crimson-dark);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 2px;
+            background: var(--charcoal);
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s;
+            transform-origin: center;
+        }
+
+        .hamburger.is-open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.is-open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* ═══════════════════════════════════════════
+   MEGA MENU — DESKTOP (with pictures)
+═══════════════════════════════════════════ */
+        .mega-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border-top: 3px solid var(--crimson);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, .15);
+            min-width: 820px;
+            z-index: 400;
+            animation: megaIn .22s ease;
+        }
+
+        @keyframes megaIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-item.open .mega-menu {
+            display: block;
+        }
+
+        .mega-menu.align-right {
+            left: auto;
+            right: 0;
+        }
+
+        .mega-body {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Picture panel */
+        .mega-picture {
+            width: 270px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .mega-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .55s;
+        }
+
+        .mega-menu:hover .mega-picture img {
+            transform: scale(1.05);
+        }
+
+        .mega-picture-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .78) 0%, transparent 55%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px 18px;
+        }
+
+        .mega-picture-cat {
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .mega-picture-title {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            color: var(--white);
+            line-height: 1.28;
+            margin-bottom: 10px;
+        }
+
+        .mega-picture-link {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .72);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .mega-picture-link:hover {
+            color: var(--gold-light);
+        }
+
+        /* Columns */
+        .mega-cols {
+            flex: 1;
+            padding: 26px 26px 26px 28px;
+            display: flex;
+            gap: 28px;
+        }
+
+        .mega-col {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .mega-col-title {
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 10px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mega-col ul {
+            list-style: none;
+        }
+
+        .mega-col ul li a {
+            display: block;
+            font-size: 13px;
+            color: var(--mid-gray);
+            text-decoration: none;
+            padding: 5px 0;
+            transition: color .18s, padding-left .15s;
+            line-height: 1.35;
+        }
+
+        .mega-col ul li a:hover {
+            color: var(--crimson);
+            padding-left: 5px;
+        }
+
+        /* Thumb strip */
+        .mega-thumb-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .mega-thumb {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: 86px;
+        }
+
+        .mega-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(.8);
+            transition: filter .3s, transform .3s;
+        }
+
+        .mega-thumb:hover img {
+            filter: brightness(.6);
+            transform: scale(1.06);
+        }
+
+        .mega-thumb:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        .mega-thumb-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 6px 10px;
+            background: linear-gradient(to top, rgba(0, 0, 0, .72), transparent);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* ═══════════════════════════════════════════
+   MOBILE NAV DRAWER
+═══════════════════════════════════════════ */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            pointer-events: none;
+        }
+
+        .mobile-nav.is-open {
+            pointer-events: all;
+        }
+
+        .mobile-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .mobile-nav.is-open .mobile-overlay {
+            opacity: 1;
+        }
+
+        .mobile-drawer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: min(340px, 93vw);
+            height: 100%;
+            background: var(--white);
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform .32s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav.is-open .mobile-drawer {
+            transform: translateX(0);
+        }
+
+        .mob-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: var(--crimson-dark);
+            border-bottom: 2px solid var(--crimson);
+            flex-shrink: 0;
+        }
+
+        .mob-logo {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .mob-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 24px;
+            line-height: 1;
+            padding: 2px 6px;
+        }
+
+        .mob-quick {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            background: var(--bg-warm);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 18px;
+        }
+
+        .mob-quick a {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--mid-gray);
+            text-decoration: none;
+            padding: 5px 10px 5px 0;
+            transition: color .15s;
+        }
+
+        .mob-quick a:hover {
+            color: var(--crimson);
+        }
+
+        .mob-body {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .mob-item {}
+
+        .mob-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 15px 18px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--slate);
+            cursor: pointer;
+            text-align: left;
+            transition: background .15s, color .15s;
+        }
+
+        .mob-trigger:hover,
+        .mob-trigger.open {
+            background: var(--bg-warm);
+            color: var(--crimson);
+        }
+
+        .mob-trigger svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .25s;
+            flex-shrink: 0;
+        }
+
+        .mob-trigger.open svg {
+            transform: rotate(180deg);
+        }
+
+        .mob-sub {
+            display: none;
+            background: var(--bg-warm);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mob-sub.open {
+            display: block;
+        }
+
+        .mob-sub-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(.88);
+        }
+
+        .mob-sub-section {
+            padding: 14px 18px 6px;
+        }
+
+        .mob-sub-title {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .mob-sub a {
+            display: block;
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--mid-gray);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+            transition: color .15s;
+        }
+
+        .mob-sub a:last-child {
+            border-bottom: none;
+        }
+
+        .mob-sub a:hover {
+            color: var(--crimson);
+        }
+
+        .mob-sub-end {
+            padding-bottom: 12px;
+        }
+
+        .mob-footer {
+            padding: 18px;
+            border-top: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .mob-apply {
+            display: block;
+            text-align: center;
+            background: var(--crimson);
+            color: var(--white);
+            padding: 14px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .2s;
+        }
+
+        .mob-apply:hover {
+            background: var(--crimson-dark);
+        }
+
+        /* ═══════════════════════════════════════════
+   ANNOUNCEMENT
+═══════════════════════════════════════════ */
+        .announcement {
+            background: var(--gold);
+            color: var(--charcoal);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 12.5px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .announcement a {
+            color: var(--charcoal);
+            font-weight: 800;
+            text-decoration: underline;
+        }
+
+     /* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            overflow: hidden;
+            background: var(--charcoal);
+            display: flex;
+            align-items: center;
+            padding: 0 0 0 24px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right, rgba(8, 8, 8, .86) 0%, rgba(8, 8, 8, .52) 55%, rgba(8, 8, 8, .12) 100%),
+                url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80') center/cover no-repeat;
+            transform: scale(1.04);
+            animation: heroZoom 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1.04);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0px 24px 70px;
+            width: 100%;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            margin-top: 16px;
+
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--gold-light);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 6vw, 76px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.07;
+            max-width: 660px;
+            margin-bottom: 20px;
+            letter-spacing: -.01em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(14px, 2vw, 17px);
+            color: rgba(255, 255, 255, .76);
+            max-width: 490px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 34px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--crimson);
+            color: var(--white);
+            text-decoration: none;
+            padding: 13px 28px;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            border: 2px solid var(--crimson);
+            transition: background .2s, transform .2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--crimson-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            padding: 13px 28px;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            border: 2px solid rgba(255, 255, 255, .42);
+            transition: border-color .2s, background .2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, .07);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 32px;
+            right: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .42);
+            z-index: 2;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 44px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, .42), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+
+            0%,
+            100% {
+                opacity: .4
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════ */
+        .stats-bar {
+            background: var(--crimson-dark);
+        }
+
+        .stats-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat-item {
+            padding: 26px 20px;
+            border-right: 1px solid rgba(255, 255, 255, .15);
+            text-align: center;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-gold {
+            color: var(--gold-light);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+        }
+
+        /* ═══════════════════════════════════════════
+   SECTIONS COMMON
+═══════════════════════════════════════════ */
+        section {
+            padding: 72px 0;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--crimson);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(26px, 3.5vw, 42px);
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.15;
+            letter-spacing: -.01em;
+            max-width: 580px;
+        }
+
+        .section-desc {
+            font-size: 15.5px;
+            color: var(--mid-gray);
+            max-width: 540px;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .section-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .link-more {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+            white-space: nowrap;
+            transition: color .2s;
+        }
+
+        .link-more:hover {
+            color: var(--crimson-dark);
+        }
+
+        .link-more svg {
+            transition: transform .2s;
+        }
+
+        .link-more:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ═══════════════════════════════════════════
+   ACADEMICS
+═══════════════════════════════════════════ */
+        .academics {
+            background: var(--bg-warm);
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .school-card {
+            background: var(--white);
+            padding: 30px 26px;
+            border-top: 4px solid transparent;
+            transition: border-color .25s, box-shadow .25s, transform .25s;
+        }
+
+        .school-card:hover {
+            border-top-color: var(--crimson);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .09);
+            transform: translateY(-2px);
+        }
+
+        .school-icon {
+            width: 42px;
+            height: 42px;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--crimson);
+        }
+
+        .school-name {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .school-desc {
+            font-size: 13.5px;
+            color: var(--mid-gray);
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .school-programs {
+            font-size: 12px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .school-programs span {
+            color: var(--crimson);
+            font-weight: 700;
+            margin-right: 2px;
+        }
+
+        .school-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 1px;
+            transition: border-color .2s;
+        }
+
+        .school-link:hover {
+            border-bottom-color: var(--crimson);
+        }
+
+        /* ═══════════════════════════════════════════
+   NEWS
+═══════════════════════════════════════════ */
+        .news {
+            background: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .news-feature {
+            background: var(--bg-warm);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .news-feature-img {
+            width: 100%;
+            height: 275px;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s;
+        }
+
+        .news-feature:hover .news-feature-img {
+            transform: scale(1.03);
+        }
+
+        .news-feature-content {
+            padding: 22px 24px 24px;
+        }
+
+        .news-cat {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .news-cat::before {
+            content: '';
+            display: block;
+            width: 14px;
+            height: 2px;
+            background: var(--crimson);
+        }
+
+        .news-headline {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.25;
+            margin-bottom: 10px;
+            transition: color .2s;
+        }
+
+        .news-feature:hover .news-headline {
+            color: var(--crimson);
+        }
+
+        .news-excerpt {
+            font-size: 13.5px;
+            color: var(--mid-gray);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item {
+            padding: 17px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .news-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .news-item:hover .ni-title {
+            color: var(--crimson);
+        }
+
+        .ni-cat {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 4px;
+        }
+
+        .ni-title {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.3;
+            margin-bottom: 4px;
+            transition: color .2s;
+        }
+
+        .ni-meta {
+            font-size: 11.5px;
+            color: var(--light-gray);
+        }
+
+        /* ═══════════════════════════════════════════
+   RESEARCH CALLOUT
+═══════════════════════════════════════════ */
+        .research-callout {
+            background: var(--slate);
+            padding: 0;
+        }
+
+        .research-callout-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 460px;
+        }
+
+        .research-content {
+            padding: 64px 52px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .research-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .research-label::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--gold-light);
+        }
+
+        .research-title {
+            font-family: var(--font-serif);
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .research-desc {
+            font-size: 15px;
+            color: rgba(255, 255, 255, .64);
+            line-height: 1.7;
+            margin-bottom: 26px;
+            font-weight: 300;
+        }
+
+        .research-areas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            margin-bottom: 28px;
+        }
+
+        .ra-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .ra-item::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: var(--gold-light);
+            flex-shrink: 0;
+        }
+
+        .research-img {
+            background: url('https://images.unsplash.com/photo-1532094349884-543559059e9d?w=900&q=80') center/cover no-repeat;
+            position: relative;
+        }
+
+        .research-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--slate) 0%, transparent 40%);
+        }
+
+        /* ═══════════════════════════════════════════
+   CAMPUS LIFE
+═══════════════════════════════════════════ */
+        .campus {
+            background: var(--bg-warm);
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 220px 220px;
+            gap: 4px;
+            margin-top: 40px;
+        }
+
+        .campus-tile {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .campus-tile:first-child {
+            grid-column: 1/2;
+            grid-row: 1/3;
+        }
+
+        .campus-tile-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform .5s;
+            filter: brightness(.72);
+        }
+
+        .campus-tile:hover .campus-tile-bg {
+            transform: scale(1.06);
+            filter: brightness(.6);
+        }
+
+        .campus-tile-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .ctc {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 4px;
+        }
+
+        .ctt {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .campus-tile:first-child .ctt {
+            font-size: 25px;
+        }
+
+        .tile-1 {
+            background-image: url('https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&q=80');
+        }
+
+        .tile-2 {
+            background-image: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80');
+        }
+
+        .tile-3 {
+            background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80');
+        }
+
+        .tile-4 {
+            background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&q=80');
+        }
+
+        .tile-5 {
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80');
+        }
+
+        /* ═══════════════════════════════════════════
+   EVENTS
+═══════════════════════════════════════════ */
+        .events {
+            background: var(--white);
+        }
+
+        .events-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-row {
+            display: grid;
+            grid-template-columns: 78px 1fr auto;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background .15s;
+        }
+
+        .event-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .event-row:hover {
+            background: var(--bg-warm);
+            padding-left: 14px;
+            padding-right: 14px;
+            margin: 0 -14px;
+        }
+
+        .ev-date {
+            text-align: center;
+        }
+
+        .ev-month {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            display: block;
+        }
+
+        .ev-day {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1;
+            display: block;
+        }
+
+        .ev-type {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--light-gray);
+            margin-bottom: 4px;
+        }
+
+        .ev-title {
+            font-family: var(--font-serif);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 3px;
+            transition: color .2s;
+        }
+
+        .event-row:hover .ev-title {
+            color: var(--crimson);
+        }
+
+        .ev-loc {
+            font-size: 12.5px;
+            color: var(--light-gray);
+        }
+
+        .ev-time {
+            font-size: 12px;
+            color: var(--mid-gray);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* ═══════════════════════════════════════════
+   LEADERSHIP QUOTE
+═══════════════════════════════════════════ */
+        .leadership {
+            background: var(--bg-off);
+            padding: 88px 0;
+        }
+
+        .leadership-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .leadership-seal {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--crimson);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 26px;
+            color: var(--crimson);
+        }
+
+        blockquote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(18px, 2.5vw, 27px);
+            color: var(--charcoal);
+            line-height: 1.45;
+            margin-bottom: 26px;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '\201C';
+            font-size: 110px;
+            color: var(--crimson);
+            opacity: .07;
+            position: absolute;
+            top: -20px;
+            left: -16px;
+            font-family: Georgia;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .quote-attr {
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--mid-gray);
+        }
+
+        .quote-attr strong {
+            color: var(--charcoal);
+        }
+
+        /* ═══════════════════════════════════════════
+   ADMISSIONS BAND
+═══════════════════════════════════════════ */
+        .admissions-band {
+            background: var(--crimson);
+            padding: 60px 0;
+        }
+
+        .admissions-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .ad-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .58);
+            margin-bottom: 8px;
+        }
+
+        .ad-title {
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .ad-desc {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, .68);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .ad-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--crimson);
+            text-decoration: none;
+            padding: 12px 26px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            display: inline-block;
+            white-space: nowrap;
+            transition: background .2s;
+        }
+
+        .btn-white:hover {
+            background: var(--bg-off);
+        }
+
+        .btn-woutline {
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 26px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            border: 2px solid rgba(255, 255, 255, .38);
+            display: inline-block;
+            white-space: nowrap;
+            transition: border-color .2s;
+        }
+
+        .btn-woutline:hover {
+            border-color: var(--white);
+        }
+
+        /* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+        footer {
+            background: var(--charcoal);
+            padding-top: 56px;
+        }
+
+        .footer-top {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px 44px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 64px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .footer-logo-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .footer-seal {
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid rgba(255, 255, 255, .28);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .62);
+            flex-shrink: 0;
+        }
+
+        .footer-brand-name {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-addr {
+            font-size: 13px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 18px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 8px;
+        }
+
+        .soc {
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .42);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            transition: background .2s, color .2s, border-color .2s;
+        }
+
+        .soc:hover {
+            background: var(--crimson);
+            color: var(--white);
+            border-color: var(--crimson);
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .fcol-title {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .fcol ul {
+            list-style: none;
+        }
+
+        .fcol ul li a {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .5);
+            text-decoration: none;
+            padding: 3px 0;
+            display: block;
+            transition: color .2s;
+        }
+
+        .fcol ul li a:hover {
+            color: rgba(255, 255, 255, .86);
+        }
+
+        .footer-bottom {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-copy {
+            color: rgba(255, 255, 255, .32);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, .38);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-legal a:hover {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        /* ═══════════════════════════════════════════
+   PAGE LOADER
+═══════════════════════════════════════════ */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--crimson-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            transition: opacity .55s ease, visibility .55s ease;
+        }
+
+        #page-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-seal {
+            width: 72px;
+            height: 72px;
+            border: 2px solid rgba(255, 255, 255, .25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: sealPulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes sealPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 168, 42, .35);
+            }
+
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 0 0 14px rgba(212, 168, 42, 0);
+            }
+        }
+
+        .loader-name {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: .04em;
+            opacity: 0;
+            animation: fadeUp .6s ease .2s forwards;
+        }
+
+        .loader-tagline {
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .5);
+            opacity: 0;
+            animation: fadeUp .6s ease .38s forwards;
+            margin-top: -20px;
+        }
+
+        .loader-bar-track {
+            width: 180px;
+            height: 2px;
+            background: rgba(255, 255, 255, .15);
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeUp .6s ease .5s forwards;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--gold-light);
+            border-radius: 2px;
+            animation: barGrow 1.4s cubic-bezier(.4, 0, .2, 1) .6s forwards;
+        }
+
+        @keyframes barGrow {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Prevent scroll during load */
+        body.loading {
+            overflow: hidden !important;
+            height: 100%;
+        }
+
+        /* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1040px)
+═══════════════════════════════════════════ */
+        @media (max-width: 1040px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .nav-right .btn-apply {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .top-bar-links:first-child {
+                display: none;
+            }
+
+            .schools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .research-callout-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .research-img {
+                min-height: 260px;
+                order: -1;
+            }
+
+            .research-img::after {
+                background: linear-gradient(to bottom, var(--slate) 0%, transparent 40%);
+            }
+
+            .campus-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 200px 200px 200px;
+            }
+
+            .campus-tile:first-child {
+                grid-column: 1/3;
+                grid-row: 1/2;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat-item:nth-child(3) {
+                border-top: 1px solid rgba(255, 255, 255, .15);
+            }
+
+            .stat-item:nth-child(4) {
+                border-top: 1px solid rgba(255, 255, 255, .15);
+                border-right: none;
+            }
+
+            .admissions-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .ad-actions {
+                align-items: flex-start;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤640px)
+═══════════════════════════════════════════ */
+        @media (max-width: 640px) {
+            .announcement {
+                font-size: 11.5px;
+                padding: 9px 14px;
+            }
+
+            .top-bar-inner {
+                padding: 6px 14px;
+            }
+
+            .header-inner {
+                padding: 0 14px;
+                gap: 10px;
+                height: 58px;
+            }
+
+            .logo-tagline {
+                display: none;
+            }
+
+            .logo-name {
+                font-size: 16px;
+            }
+
+            .logo-seal {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-seal svg {
+                width: 26px;
+                height: 26px;
+            }
+
+            .hero {
+                height: 72vh;
+                min-height: 480px;
+                max-height: none;
+            }
+
+            .hero-content {
+                padding: 80px 14px 0;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .hero-bg {
+                background:
+                    linear-gradient(to bottom, rgba(8, 8, 8, .5) 0%, rgba(8, 8, 8, .82) 100%),
+                    url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80') center/cover no-repeat;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .container {
+                padding: 0 14px;
+            }
+
+            .schools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .school-card {
+                padding: 22px 18px;
+            }
+
+            .news-grid {
+                margin-top: 24px;
+            }
+
+            .news-feature-img {
+                height: 210px;
+            }
+
+            .research-content {
+                padding: 44px 18px;
+            }
+
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
+
+            .campus-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 170px);
+            }
+
+            .campus-tile:first-child {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .campus-tile:first-child .ctt {
+                font-size: 20px;
+            }
+
+            .event-row {
+                grid-template-columns: 62px 1fr;
+                gap: 14px;
+                padding: 14px 0;
+            }
+
+            .ev-time {
+                display: none;
+            }
+
+            .event-row:hover {
+                padding-left: 8px;
+                padding-right: 8px;
+                margin: 0 -8px;
+            }
+
+            .leadership {
+                padding: 56px 0;
+            }
+
+            blockquote::before {
+                display: none;
+            }
+
+            .admissions-inner {
+                padding: 0 14px;
+            }
+
+            .ad-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-white,
+            .btn-woutline {
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer-top {
+                padding: 0 14px 32px;
+            }
+
+            .footer-nav {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 14px;
+            }
+
+            .footer-legal {
+                gap: 10px;
+            }
+
+            .section-row {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 28px;
+            }
+
+            .events-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            blockquote {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .footer-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="loading">
+
+    <!-- ═══ PAGE LOADER ═══ -->
+    <div id="page-loader">
+        <div class="loader-seal">
+            <svg width="38" height="38" viewBox="0 0 34 34" fill="none">
+                <circle cx="17" cy="17" r="15" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" />
+                <path d="M17 6L20.5 13.5H28L22 18.5L24.5 26L17 21.5L9.5 26L12 18.5L6 13.5H13.5L17 6Z"
+                    fill="rgba(255,255,255,0.55)" />
+                <circle cx="17" cy="17" r="4.5" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
+            </svg>
+        </div>
+        <div class="loader-name">Newcastle Institute</div>
+        <div class="loader-tagline">Osizweni &nbsp;&middot;&nbsp; KwaZulu-Natal &nbsp;&middot;&nbsp; South Africa</div>
+        <div class="loader-bar-track">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <strong>Applications for the <span class="dyn-year-next"></span> Academic Year are now open.</strong> Early
+        Application Deadline: <strong>31 August <span class="dyn-year"></span></strong>. <a href="#">Apply Now
+            &rarr;</a>
+    </div>
+
+    <!-- Top Utility Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <div class="top-bar-links">
+                <a href="#">Current Students</a>
+                <a href="#">Faculty &amp; Staff</a>
+                <a href="#">Alumni</a>
+                <a href="#">Parents</a>
+                <a href="#">Visitors</a>
+            </div>
+            <div class="top-bar-links">
+                <a href="#">MyAldrich Portal</a>
+                <a href="#">Directory</a>
+                <a href="#">Maps &amp; Directions</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <div class="logo-seal">
+                    <svg viewBox="0 0 34 34" fill="none">
+                        <circle cx="17" cy="17" r="15" stroke="#8B1A1A" stroke-width="1.5" />
+                        <path d="M17 6L20.5 13.5H28L22 18.5L24.5 26L17 21.5L9.5 26L12 18.5L6 13.5H13.5L17 6Z"
+                            fill="#8B1A1A" opacity=".85" />
+                        <circle cx="17" cy="17" r="4.5" fill="none" stroke="#8B1A1A" stroke-width="1" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="logo-name">Newcastle Institute</div>
+                    <div class="logo-tagline">Est. 1972 &middot; Osizweni, South Africa</div>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+
+                    <!-- ABOUT -->
+                    <li class="nav-item" data-menu="about">
+                        <a href="#">About <svg class="chev" viewBox="0 0 10 10" fill="none">
+                                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg></a>
+                        <div class="mega-menu" id="about-menu">
+                            <div class="mega-body">
+                                <div class="mega-picture">
+                                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80"
+                                        alt="Aldrich Campus" loading="lazy">
+                                    <div class="mega-picture-overlay">
+                                        <div class="mega-picture-cat">Our Campus</div>
+                                        <div class="mega-picture-title">Osizweni Campus — Newcastle, KwaZulu-Natal</div>
+                                        <a href="#" class="mega-picture-link">Take a Virtual Tour &rarr;</a>
+                                    </div>
+                                </div>
+                                <div class="mega-cols">
+                                    <div class="mega-col">
+                                        <div class="mega-col-title">The Institute</div>
+                                        <ul>
+                                            <li><a href="#">History &amp; Heritage</a></li>
+                                            <li><a href="#">Mission &amp; Vision</a></li>
+                                            <li><a href="#">Office of the President</a></li>
+                                            <li><a href="#">Academic Governance</a></li>
+                                            <li><a href="#">Accreditation</a></li>
+                                            <li><a href="#">Strategic Plan 2030</a></li>
+                                            <li><a href="#">Annual Report</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-col">
+                                        <div class="mega-col-title">Leadership</div>
+                                        <ul>
+                                            <li><a href="#">Board of Trustees</a></li>
+                                            <li><a href="#">Academic Council</a></li>
+                                            <li><a href="#">Dean's Office</a></li>
+                                            <li><a href="#">Faculty Senate</a></li>
+                                            <li><a href="#">Administration</a></li>
+                                            <li><a href="#">Distinguished Faculty</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ACADEMICS -->
+                    <li class="nav-item" data-menu="academics">
+                        <a href="#">Academics <svg class="chev" viewBox="0 0 10 10" fill="none">
+                                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg></a>
+                        <div class="mega-menu" id="academics-menu" style="min-width:900px;">
+                            <div style="display:flex;flex-direction:column;width:100%;">
+                                <div class="mega-body">
+                                    <div class="mega-picture">
+                                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80"
+                                            alt="Academics" loading="lazy">
+                                        <div class="mega-picture-overlay">
+                                            <div class="mega-picture-cat">400+ Programs</div>
+                                            <div class="mega-picture-title">Rigorous Education Across Every Discipline
+                                            </div>
+                                            <a href="#" class="mega-picture-link">View All Programs &rarr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="mega-cols">
+                                        <div class="mega-col">
+                                            <div class="mega-col-title">Schools &amp; Colleges</div>
+                                            <ul>
+                                                <li><a href="#">School of Arts &amp; Sciences</a></li>
+                                                <li><a href="#">School of Engineering</a></li>
+                                                <li><a href="#">School of Medicine</a></li>
+                                                <li><a href="#">School of Law</a></li>
+                                                <li><a href="#">School of Business</a></li>
+                                                <li><a href="#">School of Public Policy</a></li>
+                                                <li><a href="#">School of Education</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-col">
+                                            <div class="mega-col-title">Degrees &amp; Programs</div>
+                                            <ul>
+                                                <li><a href="#">Undergraduate Programs</a></li>
+                                                <li><a href="#">Graduate Programs</a></li>
+                                                <li><a href="#">Doctoral Programs (PhD)</a></li>
+                                                <li><a href="#">Professional Certificates</a></li>
+                                                <li><a href="#">Online &amp; Continuing Ed</a></li>
+                                                <li><a href="#">Interdisciplinary Studies</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-col">
+                                            <div class="mega-col-title">Resources</div>
+                                            <ul>
+                                                <li><a href="#">Academic Calendar</a></li>
+                                                <li><a href="#">Course Catalogue</a></li>
+                                                <li><a href="#">Registrar's Office</a></li>
+                                                <li><a href="#">Library System</a></li>
+                                                <li><a href="#">Research Centers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mega-thumb-strip">
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&q=75"
+                                            alt="Science" loading="lazy">
+                                        <div class="mega-thumb-label">Sciences &amp; Medicine</div>
+                                    </div>
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&q=75"
+                                            alt="Law" loading="lazy">
+                                        <div class="mega-thumb-label">Law &amp; Governance</div>
+                                    </div>
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=75"
+                                            alt="Business" loading="lazy">
+                                        <div class="mega-thumb-label">Business &amp; Economics</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- RESEARCH -->
+                    <li class="nav-item" data-menu="research">
+                        <a href="#">Research <svg class="chev" viewBox="0 0 10 10" fill="none">
+                                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg></a>
+                        <div class="mega-menu" id="research-menu" style="min-width:860px;">
+                            <div style="display:flex;flex-direction:column;width:100%;">
+                                <div class="mega-body">
+                                    <div class="mega-picture">
+                                        <img src="https://images.unsplash.com/photo-1532094349884-543559059e9d?w=600&q=80"
+                                            alt="Research" loading="lazy">
+                                        <div class="mega-picture-overlay">
+                                            <div class="mega-picture-cat">$1.2B Funded Research</div>
+                                            <div class="mega-picture-title">At the Frontier of Human Knowledge</div>
+                                            <a href="#" class="mega-picture-link">Explore Research &rarr;</a>
+                                        </div>
+                                    </div>
+                                    <div class="mega-cols">
+                                        <div class="mega-col">
+                                            <div class="mega-col-title">Research Areas</div>
+                                            <ul>
+                                                <li><a href="#">Computational Sciences &amp; AI</a></li>
+                                                <li><a href="#">Life Sciences &amp; Medicine</a></li>
+                                                <li><a href="#">Humanities &amp; Social Science</a></li>
+                                                <li><a href="#">Engineering &amp; Applied Science</a></li>
+                                                <li><a href="#">Climate &amp; Environment</a></li>
+                                                <li><a href="#">Global Affairs &amp; Policy</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-col">
+                                            <div class="mega-col-title">Centers &amp; Institutes</div>
+                                            <ul>
+                                                <li><a href="#">Newcastle Rural Dev. Centre</a></li>
+                                                <li><a href="#">Centre for Water Studies</a></li>
+                                                <li><a href="#">Institute for Public Health</a></li>
+                                                <li><a href="#">KZN Economic Policy Lab</a></li>
+                                                <li><a href="#">Environmental Science Hub</a></li>
+                                                <li><a href="#">Education &amp; Society Centre</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mega-thumb-strip">
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=75"
+                                            alt="AI" loading="lazy">
+                                        <div class="mega-thumb-label">Artificial Intelligence</div>
+                                    </div>
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=75"
+                                            alt="Genomics" loading="lazy">
+                                        <div class="mega-thumb-label">Genomics &amp; Medicine</div>
+                                    </div>
+                                    <div class="mega-thumb"><img
+                                            src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=400&q=75"
+                                            alt="Climate" loading="lazy">
+                                        <div class="mega-thumb-label">Climate Science</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ADMISSIONS -->
+                    <li class="nav-item" data-menu="admissions">
+                        <a href="#">Admissions <svg class="chev" viewBox="0 0 10 10" fill="none">
+                                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.6"
+                                    stroke-linecap="round" />
+                            </svg></a>
+                        <div class="mega-menu align-right" id="admissions-menu">
+                            <div class="mega-body">
+                                <div class="mega-picture">
+                                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80"
+                                        alt="Admissions" loading="lazy">
+                                    <div class="mega-picture-overlay">
+                                        <div class="mega-picture-cat">Class of <span class="dyn-year-plus2"></span>
+                                        </div>
+                                        <div class="mega-picture-title">Applications Now Open — Submit Before 31 August
+                                            <span class="dyn-year"></span></div>
+                                        <a href="#" class="mega-picture-link">View Admissions Requirements &rarr;</a>
+                                    </div>
+                                </div>
+                                <div class="mega-cols">
+                                    <div class="mega-col">
+                                        <div class="mega-col-title">Apply</div>
+                                        <ul>
+                                            <li><a href="#">Undergraduate Admissions</a></li>
+                                            <li><a href="#">Graduate Admissions</a></li>
+                                            <li><a href="#">International Students</a></li>
+                                            <li><a href="#">Transfer Students</a></li>
+                                            <li><a href="#">Tuition &amp; Financial Aid</a></li>
+                                            <li><a href="#">Visit Campus</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-col">
+                                        <div class="mega-col-title">Key Dates</div>
+                                        <ul>
+                                            <li><a href="#">Application Deadlines</a></li>
+                                            <li><a href="#">Notification Dates</a></li>
+                                            <li><a href="#">Open Days Schedule</a></li>
+                                            <li><a href="#">Scholarship Deadlines</a></li>
+                                            <li><a href="#">Orientation Dates</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item"><a href="#">Campus Life</a></li>
+                    <li class="nav-item"><a href="#">Alumni</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right -->
+            <div class="nav-right">
+                <button class="btn-search" aria-label="Search">
+                    <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
+                        <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M11.5 11.5L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <a href="#" class="btn-apply">Apply Now</a>
+                <button class="hamburger" id="hambBtn" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-overlay" id="mobOverlay"></div>
+        <div class="mobile-drawer">
+            <div class="mob-header">
+                <span class="mob-logo">Newcastle Institute</span>
+                <button class="mob-close" id="mobClose">&times;</button>
+            </div>
+            <div class="mob-quick">
+                <a href="#">Students</a>
+                <a href="#">Faculty</a>
+                <a href="#">Alumni</a>
+                <a href="#">Parents</a>
+                <a href="#">Directory</a>
+                <a href="#">Portal</a>
+            </div>
+            <div class="mob-body">
+                <div class="mob-item">
+                    <button class="mob-trigger" data-sub="mob-about">About <svg viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg></button>
+                    <div class="mob-sub" id="mob-about">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400&q=70" alt="Campus"
+                            class="mob-sub-img" loading="lazy">
+                        <div class="mob-sub-section">
+                            <div class="mob-sub-title">The Institute</div>
+                            <a href="#">History &amp; Heritage</a>
+                            <a href="#">Mission &amp; Vision</a>
+                            <a href="#">Office of the President</a>
+                            <a href="#">Strategic Plan 2030</a>
+                        </div>
+                        <div class="mob-sub-section mob-sub-end">
+                            <div class="mob-sub-title">Leadership</div>
+                            <a href="#">Board of Trustees</a>
+                            <a href="#">Academic Council</a>
+                            <a href="#">Administration</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mob-item">
+                    <button class="mob-trigger" data-sub="mob-acad">Academics <svg viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg></button>
+                    <div class="mob-sub" id="mob-acad">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=70"
+                            alt="Academics" class="mob-sub-img" loading="lazy">
+                        <div class="mob-sub-section">
+                            <div class="mob-sub-title">Schools &amp; Colleges</div>
+                            <a href="#">School of Arts &amp; Sciences</a>
+                            <a href="#">School of Engineering</a>
+                            <a href="#">School of Medicine</a>
+                            <a href="#">School of Law</a>
+                            <a href="#">School of Business</a>
+                        </div>
+                        <div class="mob-sub-section mob-sub-end">
+                            <div class="mob-sub-title">Degrees</div>
+                            <a href="#">Undergraduate Programs</a>
+                            <a href="#">Graduate &amp; PhD Programs</a>
+                            <a href="#">Course Catalogue</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mob-item">
+                    <button class="mob-trigger" data-sub="mob-res">Research <svg viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg></button>
+                    <div class="mob-sub" id="mob-res">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543559059e9d?w=400&q=70"
+                            alt="Research" class="mob-sub-img" loading="lazy">
+                        <div class="mob-sub-section">
+                            <div class="mob-sub-title">Research Areas</div>
+                            <a href="#">Computational Sciences &amp; AI</a>
+                            <a href="#">Life Sciences &amp; Medicine</a>
+                            <a href="#">Climate &amp; Environment</a>
+                            <a href="#">Global Affairs &amp; Policy</a>
+                        </div>
+                        <div class="mob-sub-section mob-sub-end">
+                            <div class="mob-sub-title">Centres</div>
+                            <a href="#">Newcastle Rural Dev. Centre</a>
+                            <a href="#">Centre for Water Studies</a>
+                            <a href="#">KZN Economic Policy Lab</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mob-item">
+                    <button class="mob-trigger" data-sub="mob-adm">Admissions <svg viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg></button>
+                    <div class="mob-sub" id="mob-adm">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=70"
+                            alt="Admissions" class="mob-sub-img" loading="lazy">
+                        <div class="mob-sub-section">
+                            <div class="mob-sub-title">Apply</div>
+                            <a href="#">Undergraduate Admissions</a>
+                            <a href="#">Graduate Admissions</a>
+                            <a href="#">International Students</a>
+                            <a href="#">Financial Aid</a>
+                        </div>
+                        <div class="mob-sub-section mob-sub-end">
+                            <div class="mob-sub-title">Key Dates</div>
+                            <a href="#">Application Deadlines</a>
+                            <a href="#">Open Days</a>
+                            <a href="#">Visit Campus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mob-item">
+                    <button class="mob-trigger" data-sub="mob-campus">Campus Life <svg viewBox="0 0 14 14" fill="none">
+                            <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg></button>
+                    <div class="mob-sub" id="mob-campus">
+                        <div class="mob-sub-section mob-sub-end">
+                            <div class="mob-sub-title">Student Life</div>
+                            <a href="#">Housing &amp; Dining</a>
+                            <a href="#">500+ Student Organizations</a>
+                            <a href="#">Arts &amp; Culture</a>
+                            <a href="#">Athletics</a>
+                            <a href="#">Counseling &amp; Health</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mob-item">
+                    <button class="mob-trigger" style="border-bottom:none;">Alumni</button>
+                </div>
+            </div>
+            <div class="mob-footer">
+                <a href="#" class="mob-apply">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Ranked Among South Africa's Leading Tertiary Institutions &mdash; <span
+                    class="dyn-year"></span></div>
+            <h1 class="hero-title">Advancing Knowledge. </h1>
+            <p class="hero-subtitle">For over five decades, Newcastle Institute has served the people of KwaZulu-Natal —
+                shaping leaders, advancing knowledge, and building a more equitable South Africa through the power of
+                education.</p>
+            <div class="hero-actions">
+                <a href="#" class="btn-primary">Explore Academics</a>
+                <a href="#" class="btn-outline">Research at Aldrich</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>Scroll
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item"><span class="stat-number stat-gold dyn-age"></span><span class="stat-label">Years of
+                    Excellence</span></div>
+            <div class="stat-item"><span class="stat-number">18,500+</span><span class="stat-label">Students
+                    Enrolled</span></div>
+            <div class="stat-item"><span class="stat-number stat-gold">R420M</span><span class="stat-label">Annual
+                    Research Funding</span></div>
+            <div class="stat-item"><span class="stat-number">96%</span><span class="stat-label">Graduate Employment
+                    Rate</span></div>
+        </div>
+    </div>
+
+    <!-- Academics -->
+    <section class="academics">
+        <div class="container">
+            <div class="section-row">
+                <div>
+                    <div class="section-label">Schools &amp; Colleges</div>
+                    <h2 class="section-title">A University of Extraordinary Breadth and Depth</h2>
+                    <p class="section-desc">Seven distinguished faculties offering over 400 programmes across arts,
+                        sciences, professions, and applied disciplines — serving KwaZulu-Natal and beyond.</p>
+                </div>
+                <a href="#" class="link-more">View All Programs <svg width="14" height="14" viewBox="0 0 14 14"
+                        fill="none">
+                        <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></a>
+            </div>
+            <div class="schools-grid fade-in">
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M4 18V9L11 4L18 9V18" stroke="currentColor" stroke-width="1.5" />
+                            <rect x="8" y="13" width="6" height="5" stroke="currentColor" stroke-width="1.5" />
+                            <circle cx="11" cy="9" r="1.5" fill="currentColor" />
+                        </svg></div>
+                    <div class="school-name">School of Arts &amp; Sciences</div>
+                    <p class="school-desc">The intellectual heart of the university, offering rigorous programs in
+                        humanities, social sciences, natural sciences, and mathematics.</p>
+                    <div class="school-programs"><span>120+</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="8" r="4" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M3 18C3 14.134 6.686 11 11 11C15.314 11 19 14.134 19 18" stroke="currentColor"
+                                stroke-width="1.5" />
+                        </svg></div>
+                    <div class="school-name">School of Medicine</div>
+                    <p class="school-desc">Training the next generation of physicians and biomedical scientists in one
+                        of the most advanced academic medical centers globally.</p>
+                    <div class="school-programs"><span>38</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <rect x="3" y="5" width="16" height="13" rx="1" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M3 9H19M8 5V3M14 5V3M7 13H10M12 13H15" stroke="currentColor" stroke-width="1.5" />
+                        </svg></div>
+                    <div class="school-name">School of Law</div>
+                    <p class="school-desc">A preeminent institution for legal education, dedicated to rigorous
+                        scholarship and the promotion of justice in society.</p>
+                    <div class="school-programs"><span>22</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M4 16H18M11 4L4 8H18L11 4Z" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M6 8V16M10 8V16M14 8V16M18 8V16" stroke="currentColor" stroke-width="1.5" />
+                        </svg></div>
+                    <div class="school-name">School of Engineering</div>
+                    <p class="school-desc">Pioneering research across electrical, mechanical, civil, chemical, and
+                        emerging fields of engineering and applied science.</p>
+                    <div class="school-programs"><span>64</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 3L3 7V11C3 15.418 6.582 19.326 11 20C15.418 19.326 19 15.418 19 11V7L11 3Z"
+                                stroke="currentColor" stroke-width="1.5" />
+                            <path d="M8 11L10 13L14 9" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg></div>
+                    <div class="school-name">School of Public Policy</div>
+                    <p class="school-desc">Forming leaders equipped to address complex public challenges through
+                        evidence-based analysis and principled governance.</p>
+                    <div class="school-programs"><span>18</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+                <div class="school-card">
+                    <div class="school-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M11 7V11L14 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg></div>
+                    <div class="school-name">Graduate School of Business</div>
+                    <p class="school-desc">Developing visionary business leaders through rigorous academic inquiry,
+                        global perspective, and engagement with the world of practice.</p>
+                    <div class="school-programs"><span>26</span> Programs</div><a href="#" class="school-link">Explore
+                        School &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News -->
+    <section class="news">
+        <div class="container">
+            <div class="section-row">
+                <div>
+                    <div class="section-label">News &amp; Announcements</div>
+                    <h2 class="section-title">Latest from Newcastle Institute</h2>
+                </div>
+                <a href="#" class="link-more">All News <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></a>
+            </div>
+            <div class="news-grid fade-in">
+                <div class="news-feature">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&q=80"
+                        alt="Research News" class="news-feature-img" loading="lazy">
+                    <div class="news-feature-content">
+                        <div class="news-cat">Research</div>
+                        <h3 class="news-headline">Newcastle Institute Researchers Publish Landmark Study on Water
+                            Security in Semi-Arid KwaZulu-Natal</h3>
+                        <p class="news-excerpt">A multidisciplinary team from the Faculty of Engineering and
+                            Environmental Science has published findings highlighting sustainable groundwater strategies
+                            for communities across northern KwaZulu-Natal.</p>
+                        <div class="news-meta">February 18, <span class="dyn-year"></span> &nbsp;&middot;&nbsp; 5 min
+                            read</div>
+                    </div>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="ni-cat">Faculty</div>
+                        <div class="ni-title">Prof. Nkosi Majola Appointed to National Research Foundation Advisory
+                            Board</div>
+                        <div class="ni-meta">February 15, <span class="dyn-year"></span></div>
+                    </div>
+                    <div class="news-item">
+                        <div class="ni-cat">Campus</div>
+                        <div class="ni-title">New Engineering &amp; Technology Centre Opens on Osizweni Campus</div>
+                        <div class="ni-meta">February 12, <span class="dyn-year"></span></div>
+                    </div>
+                    <div class="news-item">
+                        <div class="ni-cat">Rankings</div>
+                        <div class="ni-title">Newcastle Institute Ranked Among Top 10 Comprehensive Universities in
+                            South Africa</div>
+                        <div class="ni-meta">February 9, <span class="dyn-year"></span></div>
+                    </div>
+                    <div class="news-item">
+                        <div class="ni-cat">Students</div>
+                        <div class="ni-title">Students Win National Business Plan Competition with Rural Agri-Tech
+                            Solution</div>
+                        <div class="ni-meta">February 5, <span class="dyn-year"></span></div>
+                    </div>
+                    <div class="news-item">
+                        <div class="ni-cat">Policy</div>
+                        <div class="ni-title">Institute Launches Community Engagement Initiative Across Newcastle
+                            Municipality</div>
+                        <div class="ni-meta">February 2, <span class="dyn-year"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Callout -->
+    <section class="research-callout">
+        <div class="research-callout-inner">
+            <div class="research-content">
+                <div class="research-label">Research &amp; Community Impact</div>
+                <h2 class="research-title">Knowledge That Serves South Africa</h2>
+                <p class="research-desc">With growing national and international research partnerships, Newcastle
+                    Institute produces rigorous, impactful scholarship that addresses South Africa's most pressing
+                    social, economic, and scientific challenges.</p>
+                <div class="research-areas">
+                    <div class="ra-item">Rural Development</div>
+                    <div class="ra-item">Water &amp; Sanitation</div>
+                    <div class="ra-item">Public Health</div>
+                    <div class="ra-item">Agricultural Science</div>
+                    <div class="ra-item">Energy &amp; Sustainability</div>
+                    <div class="ra-item">Education Policy</div>
+                    <div class="ra-item">Economic Development</div>
+                    <div class="ra-item">Environmental Science</div>
+                </div>
+                <a href="#" class="btn-primary">Explore Our Research</a>
+            </div>
+            <div class="research-img"></div>
+        </div>
+    </section>
+
+    <!-- Campus Life -->
+    <section class="campus">
+        <div class="container">
+            <div class="section-label">Life at Aldrich</div>
+            <h2 class="section-title">A Campus That Inspires</h2>
+            <p class="section-desc">A modern, purpose-built campus in Osizweni, Newcastle — vibrant with student
+                culture, sport, arts, and the energy of a community committed to learning.</p>
+            <div class="campus-grid fade-in">
+                <div class="campus-tile">
+                    <div class="campus-tile-bg tile-1"></div>
+                    <div class="campus-tile-label">
+                        <div class="ctc">Campus Life</div>
+                        <div class="ctt">More Than a University — A Community</div>
+                    </div>
+                </div>
+                <div class="campus-tile">
+                    <div class="campus-tile-bg tile-2"></div>
+                    <div class="campus-tile-label">
+                        <div class="ctc">Student Organizations</div>
+                        <div class="ctt">500+ Clubs &amp; Societies</div>
+                    </div>
+                </div>
+                <div class="campus-tile">
+                    <div class="campus-tile-bg tile-3"></div>
+                    <div class="campus-tile-label">
+                        <div class="ctc">Arts &amp; Culture</div>
+                        <div class="ctt">Museums, Theatre &amp; Performing Arts</div>
+                    </div>
+                </div>
+                <div class="campus-tile">
+                    <div class="campus-tile-bg tile-4"></div>
+                    <div class="campus-tile-label">
+                        <div class="ctc">Athletics</div>
+                        <div class="ctt">42 Varsity Sports Programs</div>
+                    </div>
+                </div>
+                <div class="campus-tile">
+                    <div class="campus-tile-bg tile-5"></div>
+                    <div class="campus-tile-label">
+                        <div class="ctc">Residential Life</div>
+                        <div class="ctt">12 Residential Colleges</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section class="events">
+        <div class="container">
+            <div class="section-row events-header">
+                <div>
+                    <div class="section-label">Events &amp; Lectures</div>
+                    <h2 class="section-title">Upcoming Events</h2>
+                </div>
+                <a href="#" class="link-more">Full Calendar <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg></a>
+            </div>
+            <div class="events-list fade-in">
+                <div class="event-row">
+                    <div class="ev-date"><span class="ev-month">Feb</span><span class="ev-day">24</span></div>
+                    <div>
+                        <div class="ev-type">Public Lecture</div>
+                        <div class="ev-title">Youth, Technology &amp; the Future of Work in South Africa</div>
+                        <div class="ev-loc">Main Hall, Osizweni Campus &nbsp;&middot;&nbsp; Free &amp; Open to the
+                            Public</div>
+                    </div>
+                    <div class="ev-time">14:00 SAST</div>
+                </div>
+                <div class="event-row">
+                    <div class="ev-date"><span class="ev-month">Mar</span><span class="ev-day">3</span></div>
+                    <div>
+                        <div class="ev-type">Symposium</div>
+                        <div class="ev-title">KwaZulu-Natal Water &amp; Sanitation Forum: Solutions for Semi-Arid
+                            Communities</div>
+                        <div class="ev-loc">Engineering Faculty, Seminar Room B</div>
+                    </div>
+                    <div class="ev-time">09:00 SAST</div>
+                </div>
+                <div class="event-row">
+                    <div class="ev-date"><span class="ev-month">Mar</span><span class="ev-day">7</span></div>
+                    <div>
+                        <div class="ev-type">Open Day</div>
+                        <div class="ev-title">Undergraduate Admissions Open Day – Autumn Session</div>
+                        <div class="ev-loc">University Yard, Osizweni Campus</div>
+                    </div>
+                    <div class="ev-time">08:30 SAST</div>
+                </div>
+                <div class="event-row">
+                    <div class="ev-date"><span class="ev-month">Mar</span><span class="ev-day">14</span></div>
+                    <div>
+                        <div class="ev-type">Distinguished Lecture</div>
+                        <div class="ev-title">Transforming Education in Post-Apartheid South Africa: Progress &amp;
+                            Challenges</div>
+                        <div class="ev-loc">Auditorium A, Administration Block</div>
+                    </div>
+                    <div class="ev-time">16:00 SAST</div>
+                </div>
+                <div class="event-row">
+                    <div class="ev-date"><span class="ev-month">Mar</span><span class="ev-day">21</span></div>
+                    <div>
+                        <div class="ev-type">Heritage Day</div>
+                        <div class="ev-title">Human Rights Day Commemoration &amp; Academic Colloquium</div>
+                        <div class="ev-loc">Newcastle Institute Great Hall</div>
+                    </div>
+                    <div class="ev-time">10:00 SAST</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Quote -->
+    <section class="leadership">
+        <div class="leadership-inner fade-in">
+            <div class="leadership-seal">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                    <circle cx="17" cy="17" r="14" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M17 6L20.5 13.5H28L22 18.5L24.5 26L17 21.5L9.5 26L12 18.5L6 13.5H13.5L17 6Z"
+                        fill="currentColor" opacity=".32" />
+                    <circle cx="17" cy="17" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+            </div>
+            <blockquote>The measure of a great university is not the prestige of its name, but the quality of questions
+                its scholars dare to ask — and the courage with which they pursue the answers, wherever they may lead.
+            </blockquote>
+            <div class="quote-attr"><strong>Dr. Sibongile Dlamini</strong> &nbsp;&middot;&nbsp; Principal, Newcastle
+                Institute &nbsp;&middot;&nbsp; In Office Since 2019</div>
+        </div>
+    </section>
+
+    <!-- Admissions Band -->
+    <div class="admissions-band">
+        <div class="admissions-inner">
+            <div>
+                <div class="ad-eyebrow">Admissions</div>
+                <h2 class="ad-title">Begin Your Journey at Newcastle Institute</h2>
+                <p class="ad-desc">We seek students of extraordinary ability, intellectual curiosity, and genuine
+                    ambition. Applications for the <span class="dyn-year-next"></span> academic year are now open.
+                    Submit your application before 31 August <span class="dyn-year"></span>.</p>
+            </div>
+            <div class="ad-actions">
+                <a href="#" class="btn-white">Apply Now</a>
+                <a href="#" class="btn-woutline">Request Information</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div>
+                <div class="footer-logo-row">
+                    <div class="footer-seal"><svg width="20" height="20" viewBox="0 0 34 34" fill="none">
+                            <circle cx="17" cy="17" r="15" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M17 6L20.5 13.5H28L22 18.5L24.5 26L17 21.5L9.5 26L12 18.5L6 13.5H13.5L17 6Z"
+                                fill="currentColor" opacity=".48" />
+                        </svg></div>
+                    <div class="footer-brand-name">Newcastle Institute</div>
+                </div>
+                <div class="footer-addr">
+                    1 Institute Drive, Osizweni<br>
+                    Newcastle, KwaZulu-Natal<br>
+                    South Africa, 2952<br><br>
+                    Tel: +27 (0)34 328 0000<br>
+                    Fax: +27 (0)34 328 0001
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="soc">X</a>
+                    <a href="#" class="soc">in</a>
+                    <a href="#" class="soc">fb</a>
+                    <a href="#" class="soc">yt</a>
+                    <a href="#" class="soc">ig</a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="fcol">
+                    <div class="fcol-title">Academics</div>
+                    <ul>
+                        <li><a href="#">Undergraduate</a></li>
+                        <li><a href="#">Graduate</a></li>
+                        <li><a href="#">PhD Programs</a></li>
+                        <li><a href="#">Professional Ed.</a></li>
+                        <li><a href="#">Online Learning</a></li>
+                        <li><a href="#">Course Catalogue</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <div class="fcol-title">Research</div>
+                    <ul>
+                        <li><a href="#">Research Centers</a></li>
+                        <li><a href="#">Faculty Research</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Tech Transfer</a></li>
+                        <li><a href="#">Research Integrity</a></li>
+                        <li><a href="#">Funding</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <div class="fcol-title">Campus Life</div>
+                    <ul>
+                        <li><a href="#">Housing &amp; Dining</a></li>
+                        <li><a href="#">Student Services</a></li>
+                        <li><a href="#">Athletics</a></li>
+                        <li><a href="#">Arts &amp; Culture</a></li>
+                        <li><a href="#">Health &amp; Wellness</a></li>
+                        <li><a href="#">Diversity</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <div class="fcol-title">Administration</div>
+                    <ul>
+                        <li><a href="#">Office of the President</a></li>
+                        <li><a href="#">Board of Trustees</a></li>
+                        <li><a href="#">Human Resources</a></li>
+                        <li><a href="#">Finance &amp; Planning</a></li>
+                        <li><a href="#">Campus Safety</a></li>
+                        <li><a href="#">Emergency Info</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; <span class="dyn-year"></span> Newcastle Institute. All rights reserved.
+                Registered in South Africa.</div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Non-Discrimination</a>
+                <a href="#">Title IX</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ─── Dynamic Year ─── */
+        (function () {
+            const now = new Date();
+            const yr = now.getFullYear();
+            const founded = 1972;
+
+            // Fill all year placeholders
+            document.querySelectorAll('.dyn-year').forEach(el => el.textContent = yr);
+            document.querySelectorAll('.dyn-year-next').forEach(el => el.textContent = yr + '–' + (yr + 1));
+            document.querySelectorAll('.dyn-year-plus2').forEach(el => el.textContent = yr + 2);
+            document.querySelectorAll('.dyn-age').forEach(el => el.textContent = yr - founded);
+        })();
+
+        /* ─── Page Loader ─── */
+        (function () {
+            const loader = document.getElementById('page-loader');
+            const SEEN_KEY = 'ni_visited';
+
+            // Always ensure scroll is restored on any exit path
+            function restoreScroll() {
+                document.body.classList.remove('loading');
+                document.body.style.overflow = '';
+            }
+
+            // Already visited this session — skip loader entirely
+            if (sessionStorage.getItem(SEEN_KEY)) {
+                loader.style.display = 'none';
+                restoreScroll();
+                return;
+            }
+
+            // Mark session as visited so refreshes skip the loader
+            sessionStorage.setItem(SEEN_KEY, '1');
+
+            var dismissed = false;
+            function dismissLoader() {
+                if (dismissed) return;
+                dismissed = true;
+                loader.classList.add('hide');
+                // Remove after transition completes so it's fully gone from DOM flow
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                    restoreScroll();
+                }, 600);
+            }
+
+            // Two gates: bar animation done + page fully loaded
+            var pageLoaded = false;
+            var barDone = false;
+
+            function tryDismiss() {
+                if (pageLoaded && barDone) dismissLoader();
+            }
+
+            // Bar animation: 0.6s delay + 1.4s fill = 2s + 300ms buffer
+            setTimeout(function () { barDone = true; tryDismiss(); }, 2300);
+
+            // Page fully loaded — handle both cases: script runs before OR after load fires
+            function onPageLoad() { pageLoaded = true; tryDismiss(); }
+
+            if (document.readyState === 'complete') {
+                // Load already fired before this script ran
+                onPageLoad();
+            } else {
+                window.addEventListener('load', onPageLoad);
+            }
+
+            // Hard fallback — never block longer than 4s regardless
+            setTimeout(function () { dismissLoader(); }, 4000);
+        })();
+        /* ─── Desktop Mega Menu ─── */
+        const navItems = document.querySelectorAll('.nav-item[data-menu]');
+        let openItem = null;
+
+        navItems.forEach(item => {
+            item.querySelector('a').addEventListener('click', e => {
+                e.preventDefault();
+                const isOpen = item.classList.contains('open');
+                // Close all
+                navItems.forEach(i => i.classList.remove('open'));
+                openItem = null;
+                if (!isOpen) {
+                    item.classList.add('open');
+                    openItem = item;
+                }
+            });
+        });
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.nav-item')) {
+                navItems.forEach(i => i.classList.remove('open'));
+                openItem = null;
+            }
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                navItems.forEach(i => i.classList.remove('open'));
+                openItem = null;
+                closeMob();
+            }
+        });
+
+        /* ─── Mobile Drawer ─── */
+        const mobileNav = document.getElementById('mobileNav');
+        const hambBtn = document.getElementById('hambBtn');
+        const mobClose = document.getElementById('mobClose');
+        const mobOverlay = document.getElementById('mobOverlay');
+
+        function openMob() { mobileNav.classList.add('is-open'); hambBtn.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+        function closeMob() { mobileNav.classList.remove('is-open'); hambBtn.classList.remove('is-open'); document.body.style.overflow = ''; }
+
+        hambBtn.addEventListener('click', openMob);
+        mobClose.addEventListener('click', closeMob);
+        mobOverlay.addEventListener('click', closeMob);
+
+        /* Mobile accordion */
+        document.querySelectorAll('.mob-trigger[data-sub]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const subId = btn.dataset.sub;
+                if (!subId) return;
+                const sub = document.getElementById(subId);
+                const isOpen = btn.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.mob-trigger').forEach(b => b.classList.remove('open'));
+                document.querySelectorAll('.mob-sub').forEach(s => s.classList.remove('open'));
+                if (!isOpen) {
+                    btn.classList.add('open');
+                    sub.classList.add('open');
+                }
+            });
+        });
+
+        /* ─── Scroll Fade-In ─── */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        /* Stagger school cards */
+        document.querySelectorAll('.school-card').forEach((c, i) => {
+            c.style.transitionDelay = `${i * 0.06}s`;
+        });
+    </script>
+</body>
+
+</html>
